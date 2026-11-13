@@ -1,0 +1,98 @@
+‎<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎    <meta charset="UTF-8">
+‎    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎    <title>Choco Fashion - Pi Store</title>
+‎    <style>
+‎        body { font-family: Arial, sans-serif; margin: 0; background: #fdfaf6; color: #3b2416; }
+‎        header { background: #3b2416; color: #f5d08a; padding: 20px; text-align: center; }
+‎        header h1 { margin: 0; font-size: 26px; letter-spacing: 1px; }
+‎        header p { margin: 5px 0 0; font-size: 14px; color: #fff; }
+‎        .tabs { display: flex; justify-content: center; gap: 10px; padding: 15px; background: #efe4d6; }
+‎        .tabs button { padding: 8px 16px; border: none; border-radius: 20px; background: #3b2416; color: #fff; cursor: pointer; font-weight: bold; }
+‎        .tabs button:hover { background: #5a3824; }
+‎        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; padding: 20px; max-width: 900px; margin: auto; }
+‎        .card { background: #fff; border: 1px solid #e0d3c3; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+‎        .price { font-size: 18px; font-weight: bold; color: #b8860b; margin: 10px 0; }
+‎        .buy-btn { background: #f5d08a; color: #3b2416; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%; }
+‎        .cart-box { background: #3b2416; color: #fff; padding: 20px; margin: 20px auto; max-width: 860px; border-radius: 10px; text-align: center; }
+‎        .checkout-btn { background: #27ae60; color: #fff; border: none; padding: 12px 25px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+‎    </style>
+‎</head>
+‎<body>
+‎
+‎    <header>
+‎        <h1>CHOCO FASHION</h1>
+‎        <p>Luxury Fashion Store Powered by Pi Network (π)</p>
+‎    </header>
+‎
+‎    <div class="tabs">
+‎        <button onclick="filterItems('all')">All</button>
+‎        <button onclick="filterItems('men')">Men</button>
+‎        <button onclick="filterItems('women')">Women</button>
+‎    </div>
+‎
+‎    <div class="products" id="product-list">
+‎        <div class="card" data-category="men">
+‎            <h3>Classic Choco Jacket</h3>
+‎            <p>Premium leather winter jacket</p>
+‎            <div class="price">15 π</div>
+‎            <button class="buy-btn" onclick="addToCart('Classic Choco Jacket', 15)">Add to Cart</button>
+‎        </div>
+‎
+‎        <div class="card" data-category="women">
+‎            <h3>Golden Silk Dress</h3>
+‎            <p>Elegant evening dress</p>
+‎            <div class="price">22 π</div>
+‎            <button class="buy-btn" onclick="addToCart('Golden Silk Dress', 22)">Add to Cart</button>
+‎        </div>
+‎
+‎        <div class="card" data-category="men">
+‎            <h3>Royal Brown Shoes</h3>
+‎            <p>Handmade formal shoes</p>
+‎            <div class="price">10 π</div>
+‎            <button class="buy-btn" onclick="addToCart('Royal Brown Shoes', 10)">Add to Cart</button>
+‎        </div>
+‎    </div>
+‎
+‎    <div class="cart-box">
+‎        <h3>🛒 Your Cart: <span id="item-count">0</span> items | Total: <span id="total-price">0</span> π</h3>
+‎        <button class="checkout-btn" onclick="checkoutPi()">Pay with Pi Wallet</button>
+‎    </div>
+‎
+‎    <script>
+‎        let count = 0;
+‎        let total = 0;
+‎
+‎        function addToCart(name, price) {
+‎            count++;
+‎            total += price;
+‎            document.getElementById('item-count').innerText = count;
+‎            document.getElementById('total-price').innerText = total;
+‎            alert(name + " added to your cart!");
+‎        }
+‎
+‎        function filterItems(category) {
+‎            const cards = document.querySelectorAll('.card');
+‎            cards.forEach(card => {
+‎                if (category === 'all' || card.getAttribute('data-category') === category) {
+‎                    card.style.display = 'block';
+‎                } else {
+‎                    card.style.display = 'none';
+‎                }
+‎            });
+‎        }
+‎
+‎        function checkoutPi() {
+‎            if (total === 0) {
+‎                alert("Your cart is empty!");
+‎            } else {
+‎                alert("Connecting to Pi Network SDK...\nTotal Amount: " + total + " π\n(Ready for Pi Developer Portal integration)");
+‎            }
+‎        }
+‎    </script>
+‎
+‎</body>
+‎</html>
+‎
