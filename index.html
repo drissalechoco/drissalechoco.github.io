@@ -1,67 +1,70 @@
+/github.com
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choco Fashion - Pi Store</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #fdfaf6; color: #3b2416; }
-    header { background: #3b2416; color: #f5d08a; padding: 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 26px; letter-spacing: 1px; }
-    header p { margin: 5px 0 0; font-size: 14px; color: #fff; }
-    .tabs { display: flex; justify-content: center; gap: 10px; padding: 15px; background: #efe4d6; }
-    .tabs button { padding: 8px 16px; border: none; border-radius: 20px; background: #3b2416; color: #fff; cursor: pointer; font-weight: bold; }
-    .tabs button.active { background: #d4a348; color: #3b2416; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; padding: 20px; max-width: 900px; margin: auto; }
-    .card { background: #fff; border: 1px solid #e2d1be; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    .icon { font-size: 45px; margin-bottom: 10px; }
-    .price { color: #b88328; font-weight: bold; font-size: 18px; margin: 10px 0; }
-    .btn { background: #3b2416; color: #f5d08a; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
-    .cart-bar { position: fixed; bottom: 0; width: 100%; background: #3b2416; color: #fff; padding: 12px; text-align: center; font-weight: bold; }
-    footer { text-align: center; padding: 30px 15px 70px; font-size: 13px; color: #7a5c48; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #27ae60;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>CHOCO FASHION</h1>
-    <p>Luxury & Trendy Clothing Store on Pi Network</p>
-  </header>
-  <div class="tabs">
-    <button class="active" onclick="filterItems('all', this)">All</button>
-    <button onclick="filterItems('men', this)">Men</button>
-    <button onclick="filterItems('women', this)">Women</button>
-  </div>
-  <div class="grid" id="store"></div>
-  <div class="cart-bar" id="cart">Cart: 0 items | Total: 0 Pi</div>
-  <footer>Choco Fashion Store &copy; 2026 | Powered by Pi Network</footer>
-  <script>
-    const products = [
-      { name: "Classic Brown Jacket", cat: "men", price: 15, icon: "🧥", sizes: "M, L, XL" },
-      { name: "Elegant Gold Dress", cat: "women", price: 22, icon: "👗", sizes: "S, M, L" },
-      { name: "Cotton Casual Shirt", cat: "men", price: 8, icon: "👕", sizes: "S, M, L, XL" },
-      { name: "Chic Summer Handbag", cat: "women", price: 12, icon: "👜", sizes: "One Size" },
-      { name: "Denim Urban Jeans", cat: "men", price: 14, icon: "👖", sizes: "30, 32, 34" },
-      { name: "Silk Evening Scarf", cat: "women", price: 6, icon: "🧣", sizes: "One Size" }
-    ];
-    let count = 0, total = 0;
-    function render(cat) {
-      const store = document.getElementById('store');
-      store.innerHTML = '';
-      products.filter(p => cat === 'all' || p.cat === cat).forEach(p => {
-        store.innerHTML += `<div class="card"><div class="icon">${p.icon}</div><h3>${p.name}</h3><small>Sizes: ${p.sizes}</small><div class="price">${p.price} Pi</div><button class="btn" onclick="add(${p.price}, '${p.name}')">Add to Cart</button></div>`;
-      });
-    }
-    function filterItems(cat, btn) {
-      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      render(cat);
-    }
-    function add(price, name) {
-      count++; total += price;
-      document.getElementById('cart').innerText = `Cart: ${count} items | Total: ${total} Pi`;
-      alert(name + " added to your Choco Fashion cart!");
-    }
-    render('all');
-  </script>
+
+    <header>
+        <h1>مرحباً بكم في موقعي</h1>
+        <p>هذا هو الموقع الرسمي الخاص بي على الإنترنت</p>
+    </header>
+
+    <main>
+        <h2>نبذة عني</h2>
+        <p>أهلاً! يمكنك تعديل هذا النص لإضافة معلوماتك، خدماتك، أو مشاريعك الخاصة بكل سهولة.</p>
+        <a href="#" class="btn">تواصل معي</a>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026</p>
+    </footer>
+
 </body>
 </html>
