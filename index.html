@@ -1,138 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CHOCO FASHION | Authentic & Luxury Pi Store</title>
-    <script src="https://minepi.com"></script>
-    <style>
-        :root { --bg-dark: #120d0a; --card-bg: #1e1611; --gold: #d4af37; --text-light: #f5efe6; --text-muted: #b0a69e; --pi-purple: #6f2da8; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); padding-bottom: 95px; }
-        header { background: linear-gradient(180deg, #241811 0%, var(--bg-dark) 100%); padding: 18px 16px; text-align: center; border-bottom: 1px solid #2e221b; position: sticky; top: 0; z-index: 100; }
-        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .logo { font-size: 1.35rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); }
-        .pi-btn { background-color: var(--pi-purple); color: #fff; border: none; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
-        .subtitle { font-size: 0.85rem; color: var(--text-muted); }
-        .filters { display: flex; justify-content: center; gap: 10px; padding: 16px; }
-        .filter-btn { background-color: var(--card-bg); color: var(--text-light); border: 1px solid #382920; padding: 8px 18px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; }
-        .filter-btn.active { background-color: var(--gold); color: #120d0a; font-weight: bold; border-color: var(--gold); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; padding: 0 16px; max-width: 1000px; margin: 0 auto; }
-        .card { background-color: var(--card-bg); border: 1px solid #2e221b; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 240px; object-fit: cover; background-color: #241811; }
-        .card-body { padding: 16px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-title { font-size: 1.1rem; font-weight: 700; color: var(--text-light); margin-bottom: 6px; }
-        .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; flex-grow: 1; line-height: 1.4; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; }
-        .price { font-size: 1.15rem; font-weight: 800; color: var(--gold); }
-        .add-btn { background-color: var(--gold); color: #120d0a; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; }
-        footer { text-align: center; padding: 24px 16px; font-size: 0.8rem; color: var(--text-muted); }
-        footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
-        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: #1a120e; border-top: 1px solid #382920; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
-        .cart-info { font-size: 0.9rem; font-weight: 600; }
-        .cart-actions { display: flex; gap: 8px; }
-        .clear-btn { background-color: #382920; color: var(--text-light); border: none; padding: 10px 12px; border-radius: 10px; font-size: 0.85rem; cursor: pointer; }
-        .checkout-btn { background-color: var(--pi-purple); color: #fff; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHOCO FASHION | Authentic & Luxury Pi Store</title>
+  <script src="https://minepi.com"></script>
+  <style>
+    :root { --bg-dark: #120d0a; --card-bg: #1e1611; --gold: #d4af37; --text-light: #f5efe6; --text-muted: #b0a69e; --pi-purple: #783a8c; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-light); padding-bottom: 95px; }
+    header { background: linear-gradient(180deg, #241811 0%, var(--bg-dark) 100%); padding: 18px 16px; text-align: center; border-bottom: 1px solid #2e211b; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .logo { font-size: 1.35rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); }
+    .pi-btn { background-color: var(--pi-purple); color: #fff; border: none; padding: 8px 14px; border-radius: 20px; font-weight: bold; cursor: pointer; }
+    .subtitle { font-size: 0.85rem; color: var(--text-muted); }
+    .filters { display: flex; justify-content: center; gap: 10px; padding: 16px; flex-wrap: wrap; }
+    .filter-btn { background-color: var(--card-bg); color: var(--text-light); border: 1px solid #382920; padding: 8px 16px; border-radius: 20px; cursor: pointer; }
+    .filter-btn.active { background-color: var(--gold); color: #120d0a; font-weight: bold; border-color: var(--gold); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; padding: 0 16px; }
+    .card { background-color: var(--card-bg); border: 1px solid #2e211b; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+    .card img { width: 100%; height: 240px; object-fit: cover; background-color: #241811; }
+    .card-body { padding: 16px; display: flex; flex-direction: column; flex-grow: 1; }
+    .card-title { font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+    .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; flex-grow: 1; line-height: 1.4; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .price { font-size: 1.15rem; font-weight: 800; color: var(--gold); }
+    .add-btn { background-color: var(--gold); color: #120d0a; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    footer { text-align: center; padding: 24px 16px; font-size: 0.8rem; color: var(--text-muted); }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
+    .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: #1a120d; border-top: 1px solid #382920; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .cart-info { font-size: 0.9rem; font-weight: 600; }
+    .cart-actions { display: flex; gap: 8px; }
+    .clear-btn { background-color: #382920; color: var(--text-light); border: none; padding: 10px 12px; border-radius: 8px; cursor: pointer; }
+    .checkout-btn { background-color: var(--pi-purple); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="top-bar">
-            <div class="logo">CHOCO FASHION</div>
-            <button class="pi-btn" id="loginBtn" onclick="loginWithPi()">Connect Pi</button>
-        </div>
-        <div class="subtitle">Authentic African Heritage & Luxury Fashion on Pi Network</div>
-    </header>
-    <div class="filters">
-        <button class="filter-btn active" onclick="filterItems('all', this)">All</button>
-        <button class="filter-btn" onclick="filterItems('heritage', this)">Faso Dan Fani</button>
-        <button class="filter-btn" onclick="filterItems('apparel', this)">Apparel</button>
-        <button class="filter-btn" onclick="filterItems('shoes', this)">Shoes</button>
+  <header>
+    <div class="top-bar">
+      <div class="logo">CHOCO FASHION</div>
+      <button class="pi-btn" id="loginBtn" onclick="loginWithPi()">Connect Pi</button>
     </div>
-    <div class="grid">
-        <div class="card" data-category="heritage">
-            <img src="./shirt.jpg" alt="Authentic Faso Dan Fani" />
-            <div class="card-body">
-                <div class="card-title">Authentic Faso Dan Fani</div>
-                <div class="card-desc">Handwoven traditional cotton fabric crafted by master artisans in Burkina Faso.</div>
-                <div class="card-footer"><span class="price">12 π</span><button class="add-btn" onclick="addToCart('Authentic Faso Dan Fani', 12)">Add to Cart</button></div>
-            </div>
-        </div>
-        <div class="card" data-category="apparel">
-            <img src="./jacket.jpg" alt="Classic Choco Jacket" />
-            <div class="card-body">
-                <div class="card-title">Classic Choco Jacket</div>
-                <div class="card-desc">Modern urban winter jacket designed for superior warmth and timeless style.</div>
-                <div class="card-footer"><span class="price">18 π</span><button class="add-btn" onclick="addToCart('Classic Choco Jacket', 18)">Add to Cart</button></div>
-            </div>
-        </div>
-        <div class="card" data-category="shoes">
-            <img src="./shoes.jpg" alt="Royal Choco Sneakers" />
-            <div class="card-body">
-                <div class="card-title">Royal Choco Sneakers</div>
-                <div class="card-desc">Sleek black leather casual footwear with cushioned white soles for daily comfort.</div>
-                <div class="card-footer"><span class="price">14 π</span><button class="add-btn" onclick="addToCart('Royal Choco Sneakers', 14)">Add to Cart</button></div>
-            </div>
-        </div>
-        <div class="card" data-category="apparel">
-            <img src="./pants.jpg" alt="Tailored Choco Trousers" />
-            <div class="card-body">
-                <div class="card-title">Tailored Choco Trousers</div>
-                <div class="card-desc">Slim-fit luxury trousers tailored for effortless elegance on any occasion.</div>
-                <div class="card-footer"><span class="price">10 π</span><button class="add-btn" onclick="addToCart('Tailored Choco Trousers', 10)">Add to Cart</button></div>
-            </div>
-        </div>
+    <div class="subtitle">Authentic African Heritage & Luxury Fashion on Pi Network</div>
+  </header>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterItems('all', this)">All</button>
+    <button class="filter-btn" onclick="filterItems('heritage', this)">Faso Dan Fani</button>
+    <button class="filter-btn" onclick="filterItems('apparel', this)">Apparel</button>
+    <button class="filter-btn" onclick="filterItems('shoes', this)">Shoes</button>
+  </div>
+
+  <div class="grid">
+    <div class="card" data-category="heritage">
+      <img src="./shirt.jpg" alt="Authentic Faso Dan Fani" />
+      <div class="card-body">
+        <div class="card-title">Authentic Faso Dan Fani</div>
+        <div class="card-desc">Handwoven traditional cotton fabric crafted by master artisans in Burkina Faso.</div>
+        <div class="card-footer"><span class="price">12 π</span><button class="add-btn" onclick="addToCart('Authentic Faso Dan Fani', 12)">Add to Cart</button></div>
+      </div>
     </div>
-    <footer>
-        <p>&copy; 2026 CHOCO FASHION - Ouagadougou | Powered by Pi Network</p>
-        <p style="margin-top:8px;"><a href="./privacy.html">Privacy Policy</a> | <a href="./terms.html">Terms of Service</a></p>
-    </footer>
-    <div class="cart-bar">
-        <div class="cart-info">Cart: <span id="cartCount">0</span> | <span id="cartTotal" style="color:var(--gold);">0 π</span></div>
-        <div class="cart-actions">
-            <button class="clear-btn" onclick="clearCart()">Clear</button>
-            <button class="checkout-btn" onclick="checkoutPi()">Pay with π</button>
-        </div>
+
+    <div class="card" data-category="apparel">
+      <img src="./jacket.jpg" alt="Classic Choco Jacket" />
+      <div class="card-body">
+        <div class="card-title">Classic Choco Jacket</div>
+        <div class="card-desc">Modern urban winter jacket designed for superior warmth and timeless style.</div>
+        <div class="card-footer"><span class="price">18 π</span><button class="add-btn" onclick="addToCart('Classic Choco Jacket', 18)">Add to Cart</button></div>
+      </div>
     </div>
-    <script>
-        try { Pi.init({ version: "2.0", sandbox: true }); } catch (e) {}
-        let cartCount = 0, cartTotal = 0, currentUser = null;
-        function filterItems(c, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.card').forEach(card => { card.style.display = (c === 'all' || card.dataset.category === c) ? 'flex' : 'none'; });
-        }
-        function addToCart(n, p) {
-            cartCount++; cartTotal += p;
-            document.getElementById('cartCount').innerText = cartCount;
-            document.getElementById('cartTotal').innerText = cartTotal + ' π';
-        }
-        function clearCart() {
-            cartCount = 0; cartTotal = 0;
-            document.getElementById('cartCount').innerText = '0';
-            document.getElementById('cartTotal').innerText = '0 π';
-        }
-        async function loginWithPi() {
-            try {
-                const auth = await Pi.authenticate(['username', 'payments'], function(p) {});
-                currentUser = auth.user.username;
-                document.getElementById('loginBtn').innerText = '@' + currentUser;
-            } catch (e) { alert('Please open inside Pi Browser to connect your Pi account.'); }
-        }
-        async function checkoutPi() {
-            if (cartTotal === 0) { alert('Your cart is empty!'); return; }
-            if (!currentUser) { await loginWithPi(); }
-            try {
-                Pi.createPayment({ amount: cartTotal, memo: "CHOCO FASHION Order (" + cartCount + " items)", metadata: { itemsCount: cartCount } }, {
-                    onReadyForServerApproval: function(id) {},
-                    onReadyForServerCompletion: function(id, tx) {
-                        alert('Payment successful! Thank you for supporting CHOCO FASHION.');
-                        clearCart();
-                    },
-                    onCancel: function(id) {}, onError: function(err) {}
-                });
-            } catch (e) { alert('Please use Pi Browser to complete Pi payment.'); }
-        }
-    </script>
-</body>
-</html>
+
+    <div class="card" data-category="shoes">
+      <img src="./shoes.jpg" alt="Royal Choco Sneakers" />
+      <div class="card-body">
+        <div class="card-title">Royal Choco Sneakers</div>
+        <div class="card-desc">Sleek black leather casual footwear with cushioned white soles for daily comfort.</div>
+        <div class="card-footer"><span class="price">14 π</span><button class="add-btn" onclick="addToCart('Royal Choco Sneakers', 14)">Add to Cart</button></div>
+      </div>
+    </div>
+
+    <div class="card" data-category="apparel">
+      <img src="./pants.jpg" alt="Tailored Choco Trousers" />
+      <div class="card-body">
+        <div class="card-title">Tailored Choco Trousers</div>
+        <div class="card-desc">Slim-fit luxury trousers tailored for effortless elegance on any occasion.</div>
+        <div class="card-footer"><span class="price">10 π</span><button class="add-btn" onclick="addToCart('Tailored Choco Trousers', 10)">Add to Cart</button></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 CHOCO FASHION - Ouagadougou | Powered by Pi Network</p>
+    <p style="margin-top:8px;"><a href="./privacy.html">Privacy Policy</a> | <a href="./terms.html">Terms of Service</a></p>
+  </footer>
+
+  <div class="cart-bar">
+    <div class="cart-info">Cart: <span id="cartCount">0</span> | <span id="cartTotal" style="color:var(--gold);">0 π</span></div>
+    <div class="cart-actions">
+      <button class="clear-btn" onclick="clearCart()">Clear</button>
+      <button class="checkout-btn" onclick="checkoutPi()">Pay with π</button>
+    </div>
+  </div>
+
+  <script>
+    const BACKEND_URL = 'https://vercel.app';
+
+    try { Pi.init({ version: "2.0", sandbox: true }); } catch (e) {}
+    let cartCount = 0, cartTotal = 0, currentUser = null;
+
+    function filterItems(c, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display = (c === 'all' || card.dataset.category === c) ? 'flex' : 'none';
+      });
+    }
+
+    function addToCart(n, p) {
+      cartCount++;
+      cartTotal += p;
+      document.getElementById('cartCount').innerText = cartCount;
+      document.getElementById('cartTotal').innerText = cartTotal + ' π';
+    }
+
+    function clearCart() {
+      cartCount = 0;
+      cartTotal = 0;
+      document.getElementById('cartCount').innerText = '0';
+      document.getElementById('cartTotal').innerText = '0 π';
+    }
+
+    function onIncompletePaymentFound(payment) {
+      return fetch(BACKEND_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'complete',
+          paymentId: payment.identifier,
+          txid: payment.transaction ? payment.transaction.txid : ''
+        })
+      });
+    }
+
+    async function loginWithPi() {
+      try {
+        const auth = await Pi.authenticate(['username', 'payments'], onIncompletePaymentFound);
+        currentUser = auth.user.username;
+        document.getElementById('loginBtn').innerText = '@' + currentUser;
+        return true;
+      } catch (e) {
+        alert('Please open inside Pi Browser to connect your Pi account.');
+        return false;
+      }
+    }
+
+    async function checkoutPi() {
+      if (cartTotal === 0) { alert('Your cart is empty!'); return; }
+      if (!currentUser) {
+        const loggedIn = await loginWithPi();
+        if (!loggedIn) return;
+      }
+
+      try {
+        Pi.createPayment({
+          amount: cartTotal,
+          memo: "CHOCO FASHION Order (" + cartCount + " items)",
+          metadata: { itemsCount: cartCount }
+        }, {
+          onReadyForServerApproval: async function(paymentId) {
+            const res = await fetch(BACKEND_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'approve', paymentId: paymentId })
+            });
+            if (!res.ok) {
+              alert('Server Approval Failed: ' + res.status);
+            }
+          },
+          onReadyForServerCompletion: async function(paymentId, txid) {
+            const res = await fetch(BACKEND_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'complete', paymentId: paymentId, txid: txid })
+            });
+            if (res.ok) {
+              alert('Payment successful! Thank you for supporting CHOCO FASHION.');
+              clearCart();
+            } else {
+              alert('Server Completion Failed: ' + res.status);
+            }
+          },
+          onCancel: function(paymentId) {
+            alert('Payment cancelled.');
+          },
+          onError: function(error, payment) {
+            alert('Payment error: ' + error.message);
+          }
