@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CHOCO FASHION | Authentic & Luxury Pi Store</title>
-  <script src="https://minepi.com"></script>
+  <!-- تم تصحيح رابط مكتبة Pi SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
   <style>
     :root { --bg-dark: #120d0a; --card-bg: #1e1611; --gold: #d4af37; --text-light: #f5efe6; --text-muted: #b0a69e; --pi-purple: #783a8c; }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
@@ -105,7 +106,12 @@
   <script>
     const BACKEND_URL = 'https://choco-pi-backend.vercel.app/api/pi-payment';
 
-    try { Pi.init({ version: "2.0", sandbox: true }); } catch (e) {}
+    try { 
+      Pi.init({ version: "2.0", sandbox: true }); 
+    } catch (e) {
+      console.error("Pi SDK init error:", e);
+    }
+
     let cartCount = 0, cartTotal = 0, currentUser = null;
 
     function filterItems(c, btn) {
@@ -191,8 +197,3 @@
             }
           },
           onCancel: function(paymentId) {
-            alert('Payment cancelled.');
-          },
-          onError: function(error, payment) {
-            alert('Payment error: ' + error.message);
-          }
