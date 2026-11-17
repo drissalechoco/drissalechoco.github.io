@@ -155,7 +155,8 @@
         document.getElementById('loginBtn').innerText = '@' + currentUser;
         return true;
       } catch (e) {
-        alert('Please open inside Pi Browser to connect your Pi account.');
+        alert('Pi Error: ' + (e.message || JSON.stringify(e)));
+        
         return false;
       }
     }
