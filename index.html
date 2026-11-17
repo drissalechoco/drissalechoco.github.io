@@ -148,17 +148,24 @@
       });
     }
 
-    async function loginWithPi() {
-      try {
-        const auth = await Pi.authenticate(['username', 'payments'], onIncompletePaymentFound);
-        currentUser = auth.user.username;
-        document.getElementById('loginBtn').innerText = '@' + currentUser;
-        return true;
-      } catch (e) {
-        alert('Pi Error: ' + (e.message || JSON.stringify(e)));
-        
-        return false;
-      }
+  async function loginWithPi() {
+  const btn = document.getElementById('loginBtn');
+  btn.innerText = 'Connecting...';
+  try {
+    if (typeof Pi === 'undefined') {
+      throw new Error('Pi SDK not loaded');
+    }
+    const auth = await Pi.authenticate(['username', 'payments'], onIncompletePaymentFound);
+    currentUser = auth.user.username;
+    btn.innerText = '@' + currentUser;
+    return true;
+  } catch (e) {
+    btn.innerText = 'Connect Pi';
+    alert('Pi Error: ' + (e.message || JSON.stringify(e)));
+    return false;
+  }
+}
+
     }
 
     async function checkoutPi() {
